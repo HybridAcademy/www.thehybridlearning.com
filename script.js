@@ -38,28 +38,31 @@ document.addEventListener('DOMContentLoaded', () => {
     /* --- 2. Mobile Menu Toggle --- */
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navbar = document.querySelector('.navbar');
-    const toggleIcon = mobileToggle.querySelector('i');
 
-    mobileToggle.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-        // Change icon
-        if (navbar.classList.contains('active')) {
-            toggleIcon.classList.remove('bx-menu-alt-right');
-            toggleIcon.classList.add('bx-x');
-        } else {
-            toggleIcon.classList.remove('bx-x');
-            toggleIcon.classList.add('bx-menu-alt-right');
-        }
-    });
+    if (mobileToggle && navbar) {
+        const toggleIcon = mobileToggle.querySelector('i');
 
-    // Close menu when clicking a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navbar.classList.remove('active');
-            toggleIcon.classList.remove('bx-x');
-            toggleIcon.classList.add('bx-menu-alt-right');
+        mobileToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+            // Change icon
+            if (navbar.classList.contains('active')) {
+                toggleIcon.classList.remove('bx-menu-alt-right');
+                toggleIcon.classList.add('bx-x');
+            } else {
+                toggleIcon.classList.remove('bx-x');
+                toggleIcon.classList.add('bx-menu-alt-right');
+            }
         });
-    });
+
+        // Close menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+                toggleIcon.classList.remove('bx-x');
+                toggleIcon.classList.add('bx-menu-alt-right');
+            });
+        });
+    }
 
     /* --- 3. Scroll Animations (Intersection Observer) --- */
     const animatedElements = document.querySelectorAll('[data-animate]');
@@ -233,6 +236,33 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.innerText = originalText;
                     submitBtn.disabled = false;
                 });
+        });
+    }
+    /* --- 7. Promotional Modal Logic --- */
+    const promoModal = document.getElementById('promo-modal');
+    const closePromoBtn = document.getElementById('close-promo');
+
+    if (promoModal && closePromoBtn) {
+        // Show modal on load
+        setTimeout(() => {
+            promoModal.classList.add('active');
+            
+            // Auto-close after 10 seconds
+            setTimeout(() => {
+                promoModal.classList.remove('active');
+            }, 10000);
+        }, 800); // 0.8s delay to let page load first
+
+        // Close on button click
+        closePromoBtn.addEventListener('click', () => {
+            promoModal.classList.remove('active');
+        });
+
+        // Close on backdrop click
+        promoModal.addEventListener('click', (e) => {
+            if (e.target === promoModal) {
+                promoModal.classList.remove('active');
+            }
         });
     }
 

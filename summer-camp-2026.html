@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Hybrid Academy Online Summer Camp 2026 – Fun, interactive courses in Coding, Art, Memory Training, Story Telling & Vedic Math for kids aged 7–14. May 4–25, 2026.">
+    <meta name="keywords"
+        content="Online Summer Camp 2026, Kids Coding Camp, Hybrid Academy, Scratch, Python, Art Camp, Vedic Math, Story Telling, Memory Training, Summer Classes India">
+    <title>Online Summer Camp 2026 | Hybrid Academy</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hybrid Academy Online Summer Camp 2026">
+    <meta property="og:description"
+        content="Fun online summer courses for kids aged 7–14! Coding, Art, Memory Training & more. May 4–25, 2026.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ── Page-specific overrides ── */
+
+        /* Hero Banner */
+        .camp-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 8rem 1.5rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .camp-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .camp-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-1);
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .camp-title {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            animation: slideUp 0.9s ease forwards;
+        }
+
+        .camp-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            animation: slideUp 1s ease 0.1s both forwards;
+        }
+
+        .camp-date-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: var(--accent-gradient);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            animation: slideUp 1s ease 0.2s both forwards;
+        }
+
+        .camp-hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: slideUp 1s ease 0.3s both forwards;
+        }
+
+        /* Age Badge */
+        .age-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1.25rem;
+            background: rgba(139, 92, 246, 0.15);
+            border: 1px solid rgba(139, 92, 246, 0.4);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #a78bfa;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Activities Section */
+        .activities-section {
+            padding: var(--section-padding);
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .activity-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+            border-radius: var(--radius-md);
+        }
+
+        .activity-card:hover::before {
+            opacity: 0.05;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .activity-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .activity-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .activity-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Pick & Choose Banner */
+        .pick-banner {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pick-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .pick-banner h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pick-banner p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* How It Works */
+        .how-section {
+            padding: var(--section-padding);
+            background: var(--bg-alt);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 0 auto 1.25rem;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .step-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Registration CTA */
+        .register-section {
+            padding: var(--section-padding);
+        }
+
+        .register-card {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 3rem 2.5rem;
+            text-align: center;
+            box-shadow: var(--glass-shadow);
+        }
+
+        .register-card h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            margin-bottom: 1rem;
+        }
+
+        .register-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        /* Limited Seats highlight badge */
+        .seats-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(249,115,22,0.2));
+            border: 1px solid rgba(239,68,68,0.5);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #f87171;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1rem;
+            animation: flashy-glow-red 1.6s ease-in-out infinite alternate;
+        }
+
+        @keyframes flashy-glow-red {
+            0%   { box-shadow: 0 0 6px rgba(239,68,68,0.4); }
+            100% { box-shadow: 0 0 16px rgba(249,115,22,0.8); }
+        }
+
+        /* Big phone number display */
+        .phone-display {
+            font-size: 1.75rem;
+            font-weight: 800;
+            font-family: var(--font-heading);
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.25rem;
+            display: block;
+        }
+
+        .phone-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .contact-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .contact-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all var(--transition-normal);
+        }
+
+        .contact-chip:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.4);
+            color: #fff;
+        }
+
+        .contact-chip i {
+            color: var(--accent-1);
+            font-size: 1.1rem;
+        }
+
+        /* Mini Footer */
+        .camp-footer {
+            padding: 2rem 0;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+        }
+
+        .camp-footer p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .camp-footer a {
+            color: var(--accent-1);
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .camp-hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            .register-card {
+                padding: 2rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background blobs -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <!-- Mini Header -->
+    <header id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo.png" alt="Hybrid Academy Logo" height="80">
+                <span>Hybrid Academy</span>
+            </a>
+            <div class="nav-actions">
+                <a href="index.html" class="btn btn-outline">← Back to Home</a>
+                <a href="#register" class="btn btn-primary">Register Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="camp-hero">
+        <div class="camp-hero-content">
+            <div class="camp-badge">
+                <i class='bx bx-sun'></i> Summer 2026
+            </div>
+            <div class="age-tag">
+                <i class='bx bx-child'></i> Ages 7 – 14
+            </div>
+            <h1 class="camp-title">
+                Hybrid Academy<br>
+                <span class="gradient-text">Online Summer Camp</span>
+            </h1>
+            <p class="camp-subtitle">
+                A packed summer of fun, creativity & skill-building — all from the comfort of home!
+            </p>
+            <div class="camp-date-pill">
+                <i class='bx bx-calendar'></i> May 4 – 25, 2026
+            </div>
+            <div class="camp-hero-actions">
+                <a href="#activities" class="btn btn-outline btn-lg">Explore Activities</a>
+                <a href="#register" class="btn btn-primary btn-lg">Register Now <i class='bx bx-right-arrow-alt'></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities -->
+    <section id="activities" class="activities-section section">
+        <div class="container">
+            <div class="section-header text-center" data-animate="fade-in">
+                <span class="section-subtitle">What's On</span>
+                <h2 class="section-title">Summer Camp <span class="gradient-text">Activities</span></h2>
+                <p>Five exciting disciplines — each designed to spark curiosity and build real skills.</p>
+            </div>
+
+            <div class="activities-grid">
+                <div class="activity-card" data-animate="slide-up" style="--delay: 0.1s">
+                    <span class="activity-emoji">💻</span>
+                    <h3>Coding</h3>
+                    <p>Scratch & Turtle-Python — build games, animations and interactive stories.</p>
+                </div>
+                <div class="activity-card" data-animate="slide-up" style="--delay: 0.2s">
+                    <span class="activity-emoji">🎨</span>
+                    <h3>Art & Craft</h3>
+                    <p>Unleash creativity with guided art sessions and hands-on crafts.</p>
+                </div>
+                <div class="activity-card" data-animate="slide-up" style="--delay: 0.3s">
+                    <span class="activity-emoji">🧠</span>
+                    <h3>Memory Training</h3>
+                    <p>Sharpen concentration, focus and recall with proven memory techniques.</p>
+                </div>
+                <div class="activity-card" data-animate="slide-up" style="--delay: 0.4s">
+                    <span class="activity-emoji">📖</span>
+                    <h3>Story Telling</h3>
+                    <p>Develop imagination and communication skills through the art of storytelling.</p>
+                </div>
+                <div class="activity-card" data-animate="slide-up" style="--delay: 0.5s">
+                    <span class="activity-emoji">🔢</span>
+                    <h3>Vedic Math</h3>
+                    <p>Master rapid mental arithmetic with ancient Vedic math shortcuts.</p>
+                </div>
+            </div>
+
+            <!-- Pick & Choose -->
+            <div class="pick-banner" data-animate="fade-in">
+                <h3>🎯 Each activity is a separate <span class="gradient-text">10-day course</span></h3>
+                <p>Choose <strong>one</strong> or mix and match <strong>multiple</strong> — the choice is yours!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-section">
+        <div class="container">
+            <div class="section-header text-center" data-animate="fade-in">
+                <span class="section-subtitle">Simple & Easy</span>
+                <h2 class="section-title">How It <span class="gradient-text">Works</span></h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card" data-animate="slide-up" style="--delay: 0.1s">
+                    <div class="step-number">1</div>
+                    <h3>Choose an Activity</h3>
+                    <p>Pick one or more of the 5 fun summer camp courses.</p>
+                </div>
+                <div class="step-card" data-animate="slide-up" style="--delay: 0.2s">
+                    <div class="step-number">2</div>
+                    <h3>Register</h3>
+                    <p>Call or WhatsApp us to confirm your spot before it fills up.</p>
+                </div>
+                <div class="step-card" data-animate="slide-up" style="--delay: 0.3s">
+                    <div class="step-number">3</div>
+                    <h3>Join Online</h3>
+                    <p>Attend live interactive sessions from the comfort of your home.</p>
+                </div>
+                <div class="step-card" data-animate="slide-up" style="--delay: 0.4s">
+                    <div class="step-number">4</div>
+                    <h3>Learn & Have Fun!</h3>
+                    <p>Enjoy 10 days of learning, creativity, and new friendships.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Register / Contact -->
+    <section id="register" class="register-section section">
+        <div class="container">
+            <div class="register-card glass-panel" data-animate="fade-in">
+                <div class="seats-badge">🔥 Limited Seats Available</div>
+                <h2>Ready to Join the <span class="gradient-text">Camp?</span></h2>
+                <p>Secure your child's spot today — spaces fill up fast! Reach out to us directly to register.</p>
+
+                <span class="phone-display">+91 80153 56676</span>
+                <span class="phone-label">📞 Call or WhatsApp us to register</span>
+
+                <div class="contact-chips">
+                    <a href="tel:+918015356676" class="contact-chip">
+                        <i class='bx bx-phone'></i> Call Now
+                    </a>
+                    <a href="https://wa.me/918015356676" class="contact-chip" target="_blank">
+                        <i class='bx bxl-whatsapp'></i> WhatsApp
+                    </a>
+                    <a href="mailto:contacthybridacademy@gmail.com" class="contact-chip">
+                        <i class='bx bx-envelope'></i> Email Us
+                    </a>
+                    <a href="https://www.thehybridlearning.com" class="contact-chip" target="_blank">
+                        <i class='bx bx-globe'></i> Website
+                    </a>
+                </div>
+
+                <a href="https://wa.me/918015356676" class="btn btn-primary btn-lg" target="_blank">
+                    <i class='bx bxl-whatsapp'></i> Call or WhatsApp to Register
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="camp-footer">
+        <div class="container">
+            <p>© 2020-2026 <a href="index.html">Hybrid Academy</a>. All Rights Reserved. | <a href="https://www.thehybridlearning.com" target="_blank">www.thehybridlearning.com</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Sticky header
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+</body>
+
+</html>
